@@ -52,7 +52,7 @@ test {
 
 task alfaDZ(type: Test) {
     useJUnitPlatform {
-        includeTags("Регресс")
+        includeTags("Regress")
     }
     systemProperties(System.getProperties())
 }

@@ -36,7 +36,7 @@ public class TestMainPage extends TestData {
     popular();
   }
 
-  @Tag("Регресс")
+  @Tag("Regress")
   @DisplayName("Проверка наличия актуальных предложений на главной странице")
   @Test
   void searchWork() {
@@ -44,14 +44,14 @@ public class TestMainPage extends TestData {
   }
 
 
-  @Tag("Регресс")
+  @Tag("Regress")
   @DisplayName("Проверка списка элементов в футере - О банке...")
   @Test
   void footerMainList() {
     footer();
   }
 
-  @Tag("Регресс")
+  @Tag("Regress")
   @DisplayName("Проверка кнопок 'сроки кредитования' в калькуляторе")
   @Test
   void calculateButtons() {
