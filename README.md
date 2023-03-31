@@ -69,21 +69,21 @@ export BROWSER_PLATFORM=$(echo "${BROWSER}" | awk '{print $1}')
 export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
 ./gradlew clean Test \
-  -Dbrowser=${BROWSER_PLATFORM} \
-  -Dversion=${BROWSER_VERSION} \
+  -Dbrowser=${BROWSER} \
+  -Dversion=${VERSION} \
   -DwindowSize=${BROWSER_SIZE} \
-  -DremoteUrl=${REMOTE_URL}
+  -DremoteUrl=${URL}
 ```
 
 > `${BROWSER}` - комбинация браузера и версии (_по умолчанию - <code>chrome 100.0</code>_).
 >
-> `${BROWSER_PLATFORM}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
+> `${BROWSER}` - наименование браузера (_по умолчанию - <code>chrome</code>_).
 > 
-> `${BROWSER_VERSION}` - номер версии браузера (_по умолчанию - <code>100.0</code>_).
+> `${VERSION}` - номер версии браузера (_по умолчанию - <code>100.0</code>_).
 > 
 > `${BROWSER_SIZE}` - размер окна браузера (_по умолчанию - <code>1366x768</code>_).
 >
-> `${REMOTE_URL}` - адрес удаленного сервера, на котором будут запускаться тесты.
+> `${URL}` - адрес удаленного сервера, на котором будут запускаться тесты.
 
 <a id="jenkins"></a>
 ## Запуск тестов в Jenkins
