@@ -1,22 +1,25 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
 public class TestData {
 
-  SelenideElement body = $("body");
+  public static List<String> GetTextList() {
+    return textList;
+  }
 
-  public static List<String> textList = new ArrayList<>();
+  public static List<String> GetFooterList() {
+    return footerList;
+  }
+
+  public static List<String> GetCalculateList() {
+    return calculateList;
+  }
+
+  public static List<String> GetActualList() {
+    return actualList;
+  }
+
+  private static List<String> textList = new ArrayList<>();
 
   static {
     textList.add("Кредитная карта");
@@ -28,7 +31,11 @@ public class TestData {
   }
 
 
-  public static List<String> footerList = new ArrayList<>();
+  private static List<String> footerList = new ArrayList<>();
+
+  public List<String> getFooterList() {
+    return footerList;
+  }
 
   static {
     footerList.add("О банке");
@@ -48,7 +55,7 @@ public class TestData {
   }
 
 
-  public static List<String> calculateList = new ArrayList<>();
+  private static List<String> calculateList = new ArrayList<>();
 
   static {
     calculateList.add("3 месяца");
@@ -60,18 +67,8 @@ public class TestData {
     calculateList.add("3 года");
   }
 
-  public void buttons() {
-    $("[data-test-id^='period-btn-3']").shouldHave(text("3 месяца"));
-    $("[data-test-id^='period-btn-6']").shouldHave(text("6 месяцев"));
-    $("[data-test-id^='period-btn-9']").shouldHave(text("9 месяцев"));
-    $("[data-test-id^='period-btn-12']").shouldHave(text("1 год"));
-    $("[data-test-id^='period-btn-18']").shouldHave(text("1,5 года"));
-    $("[data-test-id^='period-btn-24']").shouldHave(text("2 года"));
-    $("[data-test-id^='period-btn-36']").shouldHave(text("3 года"));
-  }
 
-
-  public static List<String> actualList = new ArrayList<>();
+  private static List<String> actualList = new ArrayList<>();
 
   static {
     actualList.add("Альфа-Счёт");
@@ -82,30 +79,8 @@ public class TestData {
     actualList.add("Защита от мошенников");
     actualList.add("Самозанятые");
   }
-
-  void actual() {
-    ElementsCollection buttonList = $$("[id^=Main-Page-Important-Info] div p:nth-child(1)");
-    TestData.actualList.forEach(e -> buttonList.find(Condition.text(e)).should(visible));
-  }
-
-  void footer() {
-    $$(".c2Tco p").shouldHave(texts(TestData.footerList));
-  }
-
-  void buttonANewCustomer(){
-    {
-      body.$(byText("СТАТЬ КЛИЕНТОМ")).click();
-      body.shouldHave(text("Кредитная карта"));
-      body.shouldHave(text("Дебетовая Альфа-Карта"));
-      body.shouldHave(text("Альфа-Карта Premium"));
-      body.shouldHave(text("Кредит наличными"));
-      body.shouldHave(text("Рефинансирование кредита"));
-      body.shouldHave(text("Счёт для малого бизнеса"));
-      body.shouldHave(text("Брокерский счёт"));
-      body.shouldHave(text("Ипотека"));
-    }
-  }
-  void popular(){
-    $$("[id^='Main-Page-Promo-Cards']+div").shouldHave(texts(TestData.textList));
-  }
 }
+
+
+
+

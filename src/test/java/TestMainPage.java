@@ -5,76 +5,49 @@ import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class TestMainPage extends TestData {
+public class TestMainPage extends BeforeAfter {
 
-
-  @BeforeAll
-  static void beforeAll() {
-    Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
-    Configuration.browser = System.getProperty("browser", "chrome");
-    Configuration.browserVersion = System.getProperty("version", "100.0");
-    Configuration.remote = System.getProperty("remoteUrl", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability("enableVNC", true);
-    capabilities.setCapability("enableVideo", true);
-    Configuration.browserCapabilities = capabilities;
-    Configuration.baseUrl = "https://alfabank.ru/";
-    Configuration.browserSize = "1920x1080";
-
-    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    //  Configuration.holdBrowserOpen = true;
-  }
-@BeforeEach
-void beforeEach(){
-  open("https://alfabank.ru/");
-}
 
   @Tag("Regress")
   @DisplayName("Проверка наличия популярных продуктов на главной странице")
   @Test
-  void popularProducts() {
-    popular();
+  void checkPopularProducts() {
+    HelpMethods.popular();
   }
 
   @Tag("Regress")
   @DisplayName("Проверка наличия актуальных предложений на главной странице")
   @Test
-  void searchWork() {
-    actual();
+  void checkActualOffer() {
+
+    HelpMethods.actual();
   }
 
 
   @Tag("Regress")
   @DisplayName("Проверка списка элементов в футере - О банке...")
   @Test
-  void footerMainList() {
-    footer();
+  void checkButtonsInFooterOnMainList() {
+    HelpMethods.footer();
   }
 
   @Tag("Regress")
   @DisplayName("Проверка кнопок 'сроки кредитования' в калькуляторе")
   @Test
-  void calculateButtons() {
-    buttons();
+  void checkButtonsInCalculate() {
+    HelpMethods.buttons();
   }
 
   @Tag("Regress")
   @DisplayName("Переход на страницу 'Стать клиентом' и проверка наличия всех плиток на странице предложений")
   @Test
-  void becomeANewCustomerOne() {
-    buttonANewCustomer();
+  void CheckButtonBecomeANewCustomerOne() {
+    HelpMethods.buttonANewCustomer();
   }
 
 
-  @AfterEach
-  void addAttachments() {
-    Attach.screenshotAs("Last Screenshot");
-    Attach.pageSource();
-    Attach.browserConsoleLogs();
-    Attach.addVideo();
-    Selenide.closeWebDriver();
-  }
 }
