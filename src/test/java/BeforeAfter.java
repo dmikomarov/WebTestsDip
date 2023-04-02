@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.WebDriverProvider;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -13,18 +14,18 @@ public class BeforeAfter {
 
   @BeforeAll
   public static void beforeAll() {
-    Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
-    Configuration.browser = System.getProperty("browser", "chrome");
-    Configuration.browserVersion = System.getProperty("version", "100.0");
-    Configuration.remote = System.getProperty("remoteUrl");
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability("enableVNC", true);
-    capabilities.setCapability("enableVideo", true);
-    Configuration.browserCapabilities = capabilities;
-    Configuration.baseUrl = "https://alfabank.ru/";
-    Configuration.browserSize = "1920x1080";
-
-    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    WebDriverProvider webDriverProvider = new WebDriverProvider();
+//    Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
+//    Configuration.browser = System.getProperty("browser", "chrome");
+//    Configuration.browserVersion = System.getProperty("version", "100.0");
+//    Configuration.remote = System.getProperty("remoteUrl");
+//    DesiredCapabilities capabilities = new DesiredCapabilities();
+//    capabilities.setCapability("enableVNC", true);
+//    capabilities.setCapability("enableVideo", true);
+//    Configuration.browserCapabilities = capabilities;
+//    Configuration.baseUrl = "https://alfabank.ru/";
+//    Configuration.browserSize = "1920x1080";
+//    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     //  Configuration.holdBrowserOpen = true;
 
 
@@ -33,6 +34,8 @@ public class BeforeAfter {
   @BeforeEach
   void beforeEach() {
     open("https://alfabank.ru/");
+    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    Selenide.clearBrowserCookies();
   }
 
 

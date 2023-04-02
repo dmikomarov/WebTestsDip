@@ -28,7 +28,8 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-core:2.14.1',
             'com.fasterxml.jackson.core:jackson-databind:2.14.1',
             "org.aspectj:aspectjrt:1.9.8",
-            "org.aspectj:aspectjweaver:1.9.8"
+            "org.aspectj:aspectjweaver:1.9.8",
+            'org.aeonbits.owner:owner:1.0.12'
     )
 }
 allure {
