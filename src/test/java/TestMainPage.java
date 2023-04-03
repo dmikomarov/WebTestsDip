@@ -27,7 +27,6 @@ public class TestMainPage extends BeforeAfter {
     HelpMethods.actual();
   }
 
-
   @Tag("Regress")
   @DisplayName("Проверка списка элементов в футере - О банке...")
   @Test

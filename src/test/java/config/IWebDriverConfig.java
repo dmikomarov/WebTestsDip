@@ -2,7 +2,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-          "classpath:${dev}.properties"
+          "classpath:${env}.properties"
   })
   public interface IWebDriverConfig extends Config {
 
