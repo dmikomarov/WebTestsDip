@@ -1,10 +1,11 @@
 package config;
+
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-          "classpath:${env}.properties"
-  })
-  public interface IWebDriverConfig extends Config {
+        "classpath:${env}.properties"
+})
+public interface IWebDriverConfig extends Config {
 
     @Key("baseUrl")
     @DefaultValue("https://alfabank.ru/")
@@ -20,5 +21,5 @@ import org.aeonbits.owner.Config;
     @Key("browserVersion")
     @DefaultValue("100.0")
     String getBrowserVersion();
-  }
+}
 
