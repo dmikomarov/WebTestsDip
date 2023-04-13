@@ -91,7 +91,7 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 > Сборка с параметрами позволяет перед запуском изменить параметры для сборки (путем выбора из списка или прямым указанием значения).
 
 <p align="center">
-<img src="images/screenshots/JenkinsJob.png"/></a>
+<img src="images/screenshots/JenkinsJob.jpg"/></a>
 </p>
 
 <a id="allure"></a>
