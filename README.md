@@ -100,13 +100,13 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 ### Основное окно
 
 <p align="center">
-<img src="images/screenshots/AllureReport.jpg">
+<img src="images/screenshots/AllureOverview.png">
 </p>
 
 ### Тесты
 
 <p align="center">
-<img src="images/screenshots/AllureTestsNew.jpg">
+<img src="images/screenshots/AllureBehaviors.png">
 </p>
 
 <a id="testops"></a>
@@ -114,13 +114,17 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
 ### Тест-кейсы
 <p align="center">
-<img src="images/screenshots/testCases.jpg">
+<img src="images/screenshots/AllureTestCases.png">
 </p>
 
+### Пример мануального тест-кейса
+<p align="center">
+<img src="images/screenshots/AllureTestOpsManualTest.png">
+</p>
 
 ### Пример запуска тест-кейсов
 <p align="center">
-<img src="images/screenshots/Launches.jpg">
+<img src="images/screenshots/AllureTestOpsLaunches.png">
 </p>
 
 <a id="jira"></a>
@@ -134,4 +138,12 @@ export BROWSER_VERSION=$(echo "${BROWSER}" | awk '{print $2}')
 
 <p>
 <img src="images/screenshots/TelegramBot.png">
+</p>
+
+<a id="video"></a>
+## Пример прогона теста в Selenoid
+
+> К каждому тесту в отчете прилагается видео
+<p align="center">
+  <img src="images/video/VideoGif.gif">
 </p>
